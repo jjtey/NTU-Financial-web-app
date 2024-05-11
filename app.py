@@ -11,6 +11,15 @@ def main():
     r = request.form.get("q")
     return(render_template("main.html", r=r)) #define frontend r as backend r (request.form.get("q"))
 
+@app.route("/prediction",methods=['GET','POST'])
+def prediction():
+    return(render_template("prediction.html"))
+
+@app.route("/dbs_price",methods=['GET','POST'])
+def dbs_price():
+    q = float(request.form.get("q"))
+    return(render_template("dbs_price.html",r=(q*-50.6)+90.2)) #coefficient/intercept is from slide 13 of MM AI Deck 
+
 #double underline means a magic variable that cannot be defined elsewhere
 if __name__ == "__main__":
     app.run()
