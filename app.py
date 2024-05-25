@@ -26,7 +26,7 @@ def main():
     if flag == 1:
         name = request.form.get("q")
         current_time=datetime.datetime.now()
-        conn = sqlite3.connect("log.db")
+        conn = sqlite3.connect("log(1).db")
         c= conn.cursor()
         c.execute("insert into user (name,time) values (?,?)",(name,current_time))
         conn.commit()
@@ -66,7 +66,7 @@ def image_result():
 
 @app.route("/log",methods=['GET','POST'])
 def log():
-    conn = sqlite3.connect("log.db")
+    conn = sqlite3.connect("log(1).db")
     c= conn.cursor()
     c.execute("select * from user")
     r = ""
@@ -80,7 +80,7 @@ def log():
 
 @app.route("/delete",methods=['GET','POST'])
 def delete():
-    conn = sqlite3.connect("log.db")
+    conn = sqlite3.connect("log(1).db")
     c= conn.cursor()
     c.execute("delete from user")
     conn.commit()
