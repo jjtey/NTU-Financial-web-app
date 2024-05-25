@@ -4,7 +4,7 @@ import replicate
 import os
 import sqlite3
 import datetime
-from flask import Markup
+from markupsafe import Markup
 
 flag = 1 #global variable
 name = ""
